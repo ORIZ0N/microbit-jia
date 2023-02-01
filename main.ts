@@ -6,20 +6,18 @@ function interact(interval: number) {
     basic.clearScreen()
     i = 1
     while (i < interval + 1) {
-        basic.showString("" + ("" + fibo(i)))
+        basic.showString("" + ("" + factorial(i)))
         basic.pause(100)
         basic.clearScreen()
         i += 1
     }
 }
 
-function fibo(n: number): number {
-    if (n == 1) {
-        return 1
-    } else if (n == 2) {
+function factorial(x: number): number {
+    if (x == 1) {
         return 1
     } else {
-        return fibo(n - 1) + fibo(n - 2)
+        return x * factorial(x - 1)
     }
     
 }
@@ -40,21 +38,21 @@ function numElements() {
         basic.pause(50)
     }
     basic.clearScreen()
-    basic.showString("Fibo")
+    basic.showString("Fact")
     interact(atimes)
 }
 
 function showIcon() {
     basic.clearScreen()
-    music.startMelody(music.builtInMelody(Melodies.Entertainer), MelodyOptions.Once)
+    music.startMelody(music.builtInMelody(Melodies.Birthday), MelodyOptions.Once)
     for (let index = 0; index < 4; index++) {
-        basic.showIcon(IconNames.SmallDiamond)
+        basic.showIcon(IconNames.Umbrella)
         basic.pause(100)
-        basic.showIcon(IconNames.Diamond)
+        basic.showIcon(IconNames.Ghost)
         basic.pause(100)
     }
     basic.clearScreen()
-    basic.showString("Fibo")
+    basic.showString("Fact")
     basic.clearScreen()
 }
 
@@ -64,7 +62,7 @@ basic.forever(function on_forever() {
     atimes = 0
     bclicked = 0
     showIcon()
-    basic.showString("A to input B to fibo")
+    basic.showString("A to input B to Fact")
     numElements()
     basic.pause(500)
 })

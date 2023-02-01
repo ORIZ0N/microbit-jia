@@ -6,17 +6,15 @@ def interact(interval: number):
     basic.clear_screen()
     i = 1
     while i < interval + 1:
-        basic.show_string("" + str(fibo(i)))
+        basic.show_string("" + str(factorial(i)))
         basic.pause(100)
         basic.clear_screen()
         i += 1
-def fibo(n: number):
-    if n == 1:
-        return 1
-    elif n == 2:
+def factorial(x: number):
+    if x == 1:
         return 1
     else:
-        return fibo(n - 1) + fibo(n - 2)
+        return (x * factorial(x-1))
 def numElements():
     global atimes, bclicked
     while bclicked < 1:
@@ -30,19 +28,19 @@ def numElements():
             bclicked += 1
         basic.pause(50)
     basic.clear_screen()
-    basic.show_string("Fibo")
+    basic.show_string("Fact")
     interact(atimes)
 def showIcon():
     basic.clear_screen()
-    music.start_melody(music.built_in_melody(Melodies.ENTERTAINER),
+    music.start_melody(music.built_in_melody(Melodies.BIRTHDAY),
         MelodyOptions.ONCE)
     for index in range(4):
-        basic.show_icon(IconNames.SMALL_DIAMOND)
+        basic.show_icon(IconNames.UMBRELLA)
         basic.pause(100)
-        basic.show_icon(IconNames.DIAMOND)
+        basic.show_icon(IconNames.GHOST)
         basic.pause(100)
     basic.clear_screen()
-    basic.show_string("Fibo")
+    basic.show_string("Fact")
     basic.clear_screen()
 
 def on_forever():
@@ -51,7 +49,7 @@ def on_forever():
     atimes = 0
     bclicked = 0
     showIcon()
-    basic.show_string("A to input B to fibo")
+    basic.show_string("A to input B to Fact")
     numElements()
     basic.pause(500)
 basic.forever(on_forever)
