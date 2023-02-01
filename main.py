@@ -49,7 +49,7 @@ def on_forever():
     atimes = 0
     bclicked = 0
     showIcon()
-    basic.show_string("A to input B to Fact")
+    basic.show_string("A TO ADD & B TO GO")
     numElements()
     basic.pause(500)
 basic.forever(on_forever)
